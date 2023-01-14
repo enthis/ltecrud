@@ -1,8 +1,8 @@
 <?php require_once('config/main.php');
-$data_pembelian = mysql_query("select * from user");
-$data_teknisi=mysql_query("select * from teknisi1");
-$data_user=mysql_query("select * from user1");
-$data_spk=mysql_query("select * from teknisi");
+$data_pembelian =mysqli_query($con,"select * from user");
+$data_teknisi=mysqli_query($con,"select * from teknisi1");
+$data_user=mysqli_query($con,"select * from user1");
+$data_spk=mysqli_query($con,"select * from teknisi");
  ?>
 <div class="row">
 	<div class="col-md-6">
@@ -47,7 +47,7 @@ $data_spk=mysql_query("select * from teknisi");
          */
 
         var bar_data = {
-          data: [["Data User", <?php echo mysql_num_rows($data_user); ?>], ["Data Pembelian", <?php echo mysql_num_rows($data_pembelian); ?>], ["Data Teknisi", <?php echo mysql_num_rows($data_teknisi); ?>], ["Data SPK", <?php echo mysql_num_rows($data_spk); ?>]],
+          data: [["Data User", <?php echo mysqli_num_rows($data_user); ?>], ["Data Pembelian", <?php echo mysqli_num_rows($data_pembelian); ?>], ["Data Teknisi", <?php echo mysqli_num_rows($data_teknisi); ?>], ["Data SPK", <?php echo mysqli_num_rows($data_spk); ?>]],
           color: "#00A3CB"
         };
         $.plot("#bar-chart", [bar_data], {
@@ -76,10 +76,10 @@ $data_spk=mysql_query("select * from teknisi");
          */
 
         var donutData = [
-          {label: "Data User", data: <?php echo mysql_num_rows($data_user); ?>, color: "#00C0EF"},
-          {label: "Data Pembelian", data: <?php echo mysql_num_rows($data_pembelian); ?>, color: "#00A65A"},
-          {label: "Data Teknisi", data: <?php echo mysql_num_rows($data_teknisi); ?>, color: "#F39C12"},
-          {label: "Data SPK", data: <?php echo mysql_num_rows($data_spk); ?>, color: "#DD4B39"}
+          {label: "Data User", data: <?php echo mysqli_num_rows($data_user); ?>, color: "#00C0EF"},
+          {label: "Data Pembelian", data: <?php echo mysqli_num_rows($data_pembelian); ?>, color: "#00A65A"},
+          {label: "Data Teknisi", data: <?php echo mysqli_num_rows($data_teknisi); ?>, color: "#F39C12"},
+          {label: "Data SPK", data: <?php echo mysqli_num_rows($data_spk); ?>, color: "#DD4B39"}
         ];
         $.plot("#donut-chart", donutData, {
           series: {

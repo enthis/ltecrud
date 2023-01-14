@@ -7,14 +7,14 @@ $cmd = trim($_POST['cmd']);
 switch ($type) {
 	case 'data_user':
 		if ($cmd=="tambah") {
-			mysql_query("INSERT INTO user1(nama,alamat,telp,kontak)
+			mysqli_query($con,"INSERT INTO user1(nama,alamat,telp,kontak)
 			VALUES('$_POST[nama]',
 					'$_POST[alamat]',
 					'$_POST[telepon]',
 					'$_POST[kontak]')");
 		}
 		elseif($cmd=="edit") {
-			mysql_query("UPDATE user1 SET nama='$_POST[nama]',
+			mysqli_query($con,"UPDATE user1 SET nama='$_POST[nama]',
 				alamat='$_POST[alamat]',
 				telp='$_POST[telepon]',
 				kontak='$_POST[kontak]'
@@ -27,7 +27,7 @@ switch ($type) {
 		break;
 	case 'data_pembelian':
 		if ($cmd=="tambah") {
-			mysql_query("INSERT INTO user(nama,alamat,telp,kontak,type,sn,tgl)
+			mysqli_query($con,"INSERT INTO user(nama,alamat,telp,kontak,type,sn,tgl)
 			VALUES('$_POST[nama]',
 					'$_POST[alamat]',
 					'$_POST[telepon]',
@@ -37,7 +37,7 @@ switch ($type) {
 					'$_POST[tgl_beli]')");
 		}
 		elseif($cmd=="edit") {
-			mysql_query("UPDATE user SET nama='$_POST[nama] ',
+			mysqli_query($con,"UPDATE user SET nama='$_POST[nama] ',
 				alamat='$_POST[alamat]',
 				telp='$_POST[telepon]',
 				kontak='$_POST[kontak]',
@@ -53,11 +53,11 @@ switch ($type) {
 		break;
 	case 'data_teknisi':
 		if ($cmd=="tambah") {
-			mysql_query("INSERT INTO teknisi1(nama)
+			mysqli_query($con,"INSERT INTO teknisi1(nama)
 			VALUES('$_POST[nama]')");
 		}
 		elseif($cmd=="edit") {
-			mysql_query("UPDATE teknisi1 SET nama='$_POST[nama]'
+			mysqli_query($con,"UPDATE teknisi1 SET nama='$_POST[nama]'
 			WHERE id='$_POST[id]'");
 		}
 		else {
@@ -67,7 +67,7 @@ switch ($type) {
 		break;
 	case 'spk':
 		if ($cmd=="tambah") {
-			mysql_query("INSERT INTO teknisi(nama,pelanggan,alamat,kontak,telp,tgl,jam,ket)
+			mysqli_query($con,"INSERT INTO teknisi(nama,pelanggan,alamat,kontak,telp,tgl,jam,ket)
 			VALUES('$_POST[nama]',
 			'$_POST[pelanggan]',
 			'$_POST[alamat]',
@@ -78,7 +78,7 @@ switch ($type) {
 			'$_POST[ket]')");
 		}
 		elseif($cmd=="edit") {
-			mysql_query("UPDATE teknisi SET nama='$_POST[nama]',
+			mysqli_query($con,"UPDATE teknisi SET nama='$_POST[nama]',
 				pelanggan='$_POST[pelanggan]',
 				alamat='$_POST[alamat]',
 				kontak='$_POST[kontak]',
@@ -94,13 +94,13 @@ switch ($type) {
 		break;
 	case 'admin':
 		if ($cmd=="tambah") {
-			mysql_query("INSERT INTO admin(nama,username,password)
+			mysqli_query($con,"INSERT INTO admin(nama,username,password)
 			VALUES('$_POST[nama]',
 			'$_POST[username]',
 			'$_POST[password]')");
 		}
 		elseif($cmd=="edit") {
-			mysql_query("UPDATE admin SET nama='$_POST[nama]',
+			mysqli_query($con,"UPDATE admin SET nama='$_POST[nama]',
 				username='$_POST[username]',
 				password='$_POST[password]'
 				WHERE id=".$_POST[id]);

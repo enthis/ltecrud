@@ -4,10 +4,10 @@ require "config/main.php";
 $user 	= $_POST['tUser'];
 $pwd   	= $_POST['tPwd'];
 
-$hasil  = mysql_query("SELECT * FROM admin WHERE username='$user' AND
+$hasil  =mysqli_query($con,"SELECT * FROM admin WHERE username='$user' AND
 						password='$pwd'");
-$hitung = mysql_num_rows($hasil);
-$data   = mysql_fetch_array($hasil);
+$hitung = mysqli_num_rows($hasil);
+$data   = mysqli_fetch_array($hasil);
 
 if ($hitung > 0){
 	session_start();

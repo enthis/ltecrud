@@ -1,9 +1,9 @@
 <?php require_once('config/main.php'); 
-$query=mysql_query("select * from user1");
+$query=mysqli_query($con,"select * from user1");
 ?>
 <div class="box">
     <div class="box-header">
-      <h3 class="box-title">Data User ( Terdapat <?php echo mysql_num_rows($query); ?> Data)</h3>
+      <h3 class="box-title">Data User ( Terdapat <?php echo mysqli_num_rows($query); ?> Data)</h3>
     </div><!-- /.box-header -->
     <div class="box-body">
     <?php if (isset($_SESSION['username'])): ?>
@@ -26,7 +26,7 @@ $query=mysql_query("select * from user1");
 		<tbody>
 			<?php
 		  $no=1;
-		  while($q=mysql_fetch_array($query)){
+		  while($q=mysqli_fetch_array($query)){
 		  ?>
 		  <tr>
 		    <td><?php echo $no++; ?></td>          

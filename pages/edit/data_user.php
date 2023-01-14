@@ -1,6 +1,6 @@
 <?php require_once('config/main.php'); 
-$query=mysql_query("select * from user1 where id=".$_GET['id']);
-$data = mysql_fetch_array($query);
+$query=mysqli_query($con,"select * from user1 where id=".$_GET['id']);
+$data = mysqli_fetch_array($query);
 ?>
 <section>
 	<div class="row">

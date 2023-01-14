@@ -1,15 +1,15 @@
 <?php require_once('config/main.php');
-$data_pembelian = mysql_query("select * from user");
-$data_teknisi=mysql_query("select * from teknisi1");
-$data_user=mysql_query("select * from user1");
-$data_spk=mysql_query("select * from teknisi");
+$data_pembelian =mysqli_query($con,"select * from user");
+$data_teknisi=mysqli_query($con,"select * from teknisi1");
+$data_user=mysqli_query($con,"select * from user1");
+$data_spk=mysqli_query($con,"select * from teknisi");
  ?>
 <div class="row">
     <div class="col-lg-3 col-xs-6">
       <!-- small box -->
       <div class="small-box bg-aqua">
         <div class="inner">
-          <h3><?php echo mysql_num_rows($data_user); ?></h3>
+          <h3><?php echo mysqli_num_rows($data_user); ?></h3>
           <p>Data User</p>
         </div>
         <div class="icon">
@@ -22,7 +22,7 @@ $data_spk=mysql_query("select * from teknisi");
       <!-- small box -->
       <div class="small-box bg-green">
         <div class="inner">
-          <h3><?php echo mysql_num_rows($data_pembelian); ?></h3>
+          <h3><?php echo mysqli_num_rows($data_pembelian); ?></h3>
           <p>Data Pembelian</p>
         </div>
         <div class="icon">
@@ -35,7 +35,7 @@ $data_spk=mysql_query("select * from teknisi");
       <!-- small box -->
       <div class="small-box bg-yellow">
         <div class="inner">
-          <h3><?php echo mysql_num_rows($data_teknisi); ?></h3>
+          <h3><?php echo mysqli_num_rows($data_teknisi); ?></h3>
           <p>Data Teknisi</p>
         </div>
         <div class="icon">
@@ -48,7 +48,7 @@ $data_spk=mysql_query("select * from teknisi");
       <!-- small box -->
       <div class="small-box bg-red">
         <div class="inner">
-          <h3><?php echo mysql_num_rows($data_spk); ?></h3>
+          <h3><?php echo mysqli_num_rows($data_spk); ?></h3>
           <p>Data SPK</p>
         </div>
         <div class="icon">
